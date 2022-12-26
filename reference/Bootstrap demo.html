@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://127.0.0.1:5500/main.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="./Bootstrap demo_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+
+        <div class="container-fluid">
+          <a class="navbar-brand" href="http://127.0.0.1:5500/main.html#">INU 시간표 지도</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse show" id="navbarSupportedContent" style="">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+
+    </nav>
+
+    <!-- 지도 이미지 삽입-->
+     <!-- <div img id="map" class="img-fluid"  style="width:500px;height:400px;" alt="//dapi.kakao.com/v2/maps/sdk.js?appkey=fe1dd80e663b8f2c6d1bacc220026960"></div>
+
+     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fe1dd80e663b8f2c6d1bacc220026960"></script>
+     <script>
+         var container = document.getElementById('map');
+         var options = {
+             center: new kakao.maps.LatLng(37.376843, 126.635059),
+             level: 4
+         };
+ 
+         var map = new kakao.maps.Map(container, options);
+     </script> -->
+
+    <!-- 지도 영역 선택-->
+     <img src="./Bootstrap demo_files/songdo_map.jpg" class="img-fluid" alt="인천대학교 송도캠퍼스 시간표 지도" usemap="#test">
+     <map id="test" name="test">
+    
+        <area shape="poly" coords="338,234,343,217,361,206,371,202,379,204,399,211,408,218,405,229,400,241,396,250" href="http://127.0.0.1:5500/%EC%9E%90%EC%97%B0%EA%B3%BC%ED%95%99%EB%8C%80%ED%95%99.html" alt="자연과학대학 시간표" target="_self">
+        <area shape="poly" coords="261,216,227,202,230,188,251,173,268,169,282,179,290,188,284,198" href="http://127.0.0.1:5500/%EC%A0%95%EB%B3%B4%EA%B8%B0%EC%88%A0%EB%8C%80%ED%95%99.html" alt="정보기술대학 시간표" target="_self">
+        <area shape="poly" coords="205,199,147,183,147,164,188,145,222,156,241,165,238,173" href="http://127.0.0.1:5500/%EA%B3%B5%EA%B3%BC%EB%8C%80%ED%95%99.html" alt="공과대학 시간표" target="_self">
+
+        <area shape="poly" coords="412,185,399,179,398,166,410,162,427,164,452,174,461,185,454,194" href="http://127.0.0.1:5500/%EC%82%AC%ED%9A%8C%EA%B3%BC%ED%95%99%EB%8C%80%ED%95%99.html" alt="사회과학대학 시간표">
+        <area shape="poly" coords="487,178,417,155,424,132,463,139,505,152" href="http://127.0.0.1:5500/%EA%B2%BD%EC%98%81_%EB%8F%99%EB%B6%81%EC%95%84%EA%B5%AD%EC%A0%9C%ED%86%B5%EC%83%81%EB%8C%80%ED%95%99.html" alt="경영·동북아국제통상대학 시간표">
+        <area shape="poly" coords="409,154,343,136,342,113,412,131" href="http://127.0.0.1:5500/%EC%9D%B8%EB%AC%B8%EB%8C%80%ED%95%99.html" alt="인문대학 시간표">
+        <area shape="poly" coords="327,133,286,124,286,109,291,103,333,117" href="http://127.0.0.1:5500/%EC%98%88%EC%88%A0%EC%B2%B4%EC%9C%A1%EB%8C%80%ED%95%99.html" alt="예술체육대학 시간표">
+
+        <area shape="poly" coords="14,179,43,165,49,170,48,179,26,190,26,202,14,201" href="http://127.0.0.1:5500/%EB%8F%84%EC%8B%9C%EA%B3%BC%ED%95%99%EB%8C%80%ED%95%99.html" alt="도시과학대학 시간표">
+        <area shape="poly" coords="102,134,121,124,126,130,126,148,113,154,102,152" href="http://127.0.0.1:5500/%EC%83%9D%EB%AA%85%EA%B3%B5%ED%95%99%EB%B6%80.html" alt="생명공학부 시간표">
+
+    </map>
+
+    <script src="./Bootstrap demo_files/bootstrap.bundle.min.js.다운로드" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
