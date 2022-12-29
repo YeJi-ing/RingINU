@@ -60,9 +60,33 @@ public class InfoController {
             stmt.close();
             //rs.close();
         }
-
     }
-    
+
+//    void SortDB() throws ClassNotFoundException, SQLException {
+//        Connection con = null;
+//        Statement stmt = null;
+//        ResultSet rs = null;
+//
+//        Class.forName("org.sqlite.JDBC");
+//        String dbFileUrl = "C:\\Users\\HanYeJi\\Desktop\\jetbot\\Ring-spring\\src\\main\\java\\RingINU\\Ringspring\\controller\\DB\\UserInfo.db";
+//
+//        try{
+//            con=DriverManager.getConnection("jdbc:sqlite:" + dbFileUrl);
+//            System.out.println("DB connected");
+//
+//            stmt=con.createStatement();
+//            stmt.executeUpdate("insert into info(userID, score) values(\"" + userID + "\",null);");
+//            // 0을 null로 바꿈
+//
+//        }catch (Exception e) {
+//            System.out.println(e);
+//        }finally {
+//            stmt.close();
+//            //rs.close();
+//        }
+//    }
+
+
     @RequestMapping(value = "send", method = RequestMethod.GET)
     public String send(String userID, Model model) throws ClassNotFoundException, SQLException {
         model.addAttribute("userID", userID);
