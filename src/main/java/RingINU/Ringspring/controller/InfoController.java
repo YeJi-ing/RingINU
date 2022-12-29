@@ -19,8 +19,13 @@ public class InfoController {
     @RequestMapping(value = "/send", method = RequestMethod.GET)
     public String send(String building, Model model) {
         model.addAttribute("building", building);
-
-        return "testinfo";
+        if (building.equals("send"))
+        {
+            return "posedetection";
+        } else if (building.equals("tend")) {
+            return "testinfo";
+        }
+        return "";
     }
 
 
