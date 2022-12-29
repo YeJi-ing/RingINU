@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RingSpringApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(RingSpringApplication.class, args);
 	}
 
