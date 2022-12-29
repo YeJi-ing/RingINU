@@ -19,7 +19,6 @@ public class InfoController {
     @RequestMapping(value = "/send", method = RequestMethod.GET)
     public String send(String building, Model model) {
         model.addAttribute("building", building);
-        if (building.equals("정보기술")) { return "buildinginfo"; }
 
         return "testinfo";
     }
