@@ -1,68 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-size: cover;
+            height: 100vh;
+            width: auto;
+            background: url("image/background.jpg") no-repeat center;
+
+        }
+
+        div#title {
+            display: inline-block;
+            text-decoration-color: black;
+            margin-left: 600px;
+            margin-top: 50px;
+        }
+
+        div#ranking {
+            text-align: left;
+            display: inline-block;
+            background-color: rgb(247, 243, 234);
+            margin-top: 20px;
+            margin-left: 200px;
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-right: 50px;
+            opacity: 0.8;
+
+
+        }
+
+        h2#center {
+            width: 1000px;
+            text-align: center;
+        }
+
+        div#login {
+            margin-left: 400px;
+            margin-top: 30px;
+        }
+    </style>
+    <!-- <script>
+        //닉네임 안썼을 경우 에러처리
+        window.onload = function () {
+            if (input.value === '' || input.value == '사용자 닉네임을 입력하세요.') {
+                console.log('없음');
+                document.querySelector("").removeAttribute('href')
+            }
+        }
+    </script> -->
 </head>
+
+
 <body>
-<div>Teachable Machine Image Model</div>
-<button type="button" onclick="init()">Start</button>
-<div id="webcam-container"></div>
-<div id="label-container"></div>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-<script type="text/javascript">
-    // More API functions here:
-    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+<!-- 제목 -->
+<div id="title">
+    <h1>운동 배틀 게임!</h1>
+</div>
 
-    // the link to your model provided by Teachable Machine export panel
-    const URL = "./my_model/";
+<!-- 랭킹 테이블 -->
+<div id="ranking">
+    <h2 id="center">- 현재 랭킹 -</h2>
+    <table class="table">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">이름</th>
+                <th scope="col">성적</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>김지윤</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>최유정</td>
+                <td>99</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>한예지</td>
+                <td>98</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>이효림</td>
+                <td>97</td>
+            </tr>
+            </tbody>
+        </table>
+    </table>
 
-    let model, webcam, labelContainer, maxPredictions;
+</div>
 
-    // Load the image model and setup the webcam
-    async function init() {
-        const modelURL = URL + "model.json";
-        const metadataURL = URL + "metadata.json";
+<!-- 로그인 -->
+<div id="login">
+    <!-- 서버 GET 통신 -->
+    <!-- <form action="send" method="GET">
+        <label for="userID">
+            <input type="text" placeholder="Search" aria-label="Search" id="userID" name="userID">
+        </label>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form> -->
+    <form action="send" method="GET">
+        <label for="userID">
+            <label for="userID"><input type="text" placeholder="사용자 이름을 입력하세요." aria-label="사용자 이름을 입력하세요." id="userID" name="userID"></label>
+            <button class="btn btn-danger" type="submit">도전!</button>
+        </label>
+    </form>
+</div>
 
-        // load the model and metadata
-        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-        // or files from your local hard drive
-        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
-        model = await tmImage.load(modelURL, metadataURL);
-        maxPredictions = model.getTotalClasses();
 
-        // Convenience function to setup a webcam
-        const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-        await webcam.setup(); // request access to the webcam
-        await webcam.play();
-        window.requestAnimationFrame(loop);
 
-        // append elements to the DOM
-        document.getElementById("webcam-container").appendChild(webcam.canvas);
-        labelContainer = document.getElementById("label-container");
-        for (let i = 0; i < maxPredictions; i++) { // and class labels
-            labelContainer.appendChild(document.createElement("div"));
-        }
-    }
 
-    async function loop() {
-        webcam.update(); // update the webcam frame
-        await predict();
-        window.requestAnimationFrame(loop);
-    }
+<!-- JavaScript -->
+<script>
+        'use strict'
+        //href="page2.html"
+        const btn_submit = document.querySelector('#btn_submit');
+        const input = document.querySelector('#userID');
+        let userID;
 
-    // run the webcam image through the image model
-    async function predict() {
-        // predict can take in an image, video or canvas html element
-        const prediction = await model.predict(webcam.canvas);
-        for (let i = 0; i < maxPredictions; i++) {
-            const classPrediction =
-                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-            labelContainer.childNodes[i].innerHTML = classPrediction;
-        }
-    }
-</script>
+        //제출 버튼 이벤트 처리
+        btn_submit.addEventListener('click', () => {
+            if (input.value === '' || input.value === '사용자 닉네임을 입력하세요.') {
+                alert('닉네임을 입력하세요.')
+            }
+            else {
+                //document.querySelector("a").setAttribute('href', "page2.html");
+                userID = input.value;
+                console.log(userID);
+            }
+        })
+
+        //닉네임 입력칸 이벤트 처리
+        input.addEventListener('click', () => {
+            input.value = ' '; //입력할 수 있도록 지운다.
+            input.focus();
+        })
+
+
+    </script>
 </body>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
 </html>
