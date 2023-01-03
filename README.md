@@ -22,6 +22,7 @@ alt="RingINU" width="480" height="360" border="10" /></a>
     - [Spring Boot 2.7.7](https://start.spring.io/)
 - [ ] `HTML`
 - [ ] `JavaScript`
+- [ ] `Python`
 
 ## 3. Building RingINU
 Clone the repository:
